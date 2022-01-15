@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ML" Version="1.7.0" />
+  </ItemGroup>
+  <ItemGroup Label="SMSSpamDetectionMLModel">
+    <None Include="SMSSpamDetectionMLModel.consumption.cs">
+      <DependentUpon>SMSSpamDetectionMLModel.mbconfig</DependentUpon>
+    </None>
+    <None Include="SMSSpamDetectionMLModel.training.cs">
+      <DependentUpon>SMSSpamDetectionMLModel.mbconfig</DependentUpon>
+    </None>
+    <None Include="SMSSpamDetectionMLModel.zip">
+      <DependentUpon>SMSSpamDetectionMLModel.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup Label="SentimentAnalysisMLModel">
+    <None Include="SentimentAnalysisMLModel.consumption.cs">
+      <DependentUpon>SentimentAnalysisMLModel.mbconfig</DependentUpon>
+    </None>
+    <None Include="SentimentAnalysisMLModel.training.cs">
+      <DependentUpon>SentimentAnalysisMLModel.mbconfig</DependentUpon>
+    </None>
+    <None Include="SentimentAnalysisMLModel.zip">
+      <DependentUpon>SentimentAnalysisMLModel.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

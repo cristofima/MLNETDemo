@@ -1,0 +1,86 @@
+﻿{
+  "TrainingTime": 60,
+  "Scenario": "Classification",
+  "DataSource": {
+    "Type": "TabularFile",
+    "Version": 1,
+    "FilePath": "C:\\Users\\FullComputador\\OneDrive\\MLSA\\Eventos\\Introducción a ML.NET\\Datasets\\SMS Spam Detection.csv",
+    "Delimiter": ";",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "Label",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 1
+      },
+      {
+        "ColumnName": "Text",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 1
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 0,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 0,
+        "Type": "Trial",
+        "TrainerName": "SdcaMaximumEntropyMulti",
+        "Score": 0.866110031098328,
+        "RuntimeInSeconds": 6.1459999084472656
+      },
+      {
+        "Version": 0,
+        "Type": "Trial",
+        "TrainerName": "FastTreeOva",
+        "Score": 0.96207798342840223,
+        "RuntimeInSeconds": 11.291000366210938
+      },
+      {
+        "Version": 0,
+        "Type": "Trial",
+        "TrainerName": "SdcaLogisticRegressionOva",
+        "Score": 0.866110031098328,
+        "RuntimeInSeconds": 11.71399974822998
+      },
+      {
+        "Version": 0,
+        "Type": "Trial",
+        "TrainerName": "SdcaMaximumEntropyMulti",
+        "Score": 0.866110031098328,
+        "RuntimeInSeconds": 5.7649998664855957
+      },
+      {
+        "Version": 0,
+        "Type": "Trial",
+        "TrainerName": "LbfgsMaximumEntropyMulti",
+        "Score": 0.98568467252959535,
+        "RuntimeInSeconds": 8.8970003128051758
+      },
+      {
+        "Version": 0,
+        "Type": "Trial",
+        "TrainerName": "LightGbmMulti",
+        "Score": 0.97538873801724257,
+        "RuntimeInSeconds": 7.9629998207092285
+      }
+    ],
+    "Pipeline": "{\"parameter\":{\r\n  \"0\": {\r\n    \"InputColumnName\": \"Text\",\r\n    \"OutputColumnName\": \"Text\"\r\n  },\r\n  \"1\": {\r\n    \"InputColumnNames\": [\r\n      \"Text\"\r\n    ],\r\n    \"OutputColumnName\": \"Features\"\r\n  },\r\n  \"2\": {\r\n    \"OutputColumnName\": \"Label\",\r\n    \"InputColumnName\": \"Label\"\r\n  },\r\n  \"3\": {\r\n    \"OutputColumnNames\": [\r\n      \"Features\"\r\n    ],\r\n    \"InputColumnNames\": [\r\n      \"Features\"\r\n    ]\r\n  },\r\n  \"4\": {\r\n    \"L1Regularization\": 1.0,\r\n    \"L2Regularization\": 1.0,\r\n    \"LabelColumnName\": \"Label\",\r\n    \"FeatureColumnName\": \"Features\"\r\n  },\r\n  \"5\": {\r\n    \"OutputColumnName\": \"PredictedLabel\",\r\n    \"InputColumnName\": \"PredictedLabel\"\r\n  }\r\n},\"estimators\":[\"FeaturizeText\",\"Concatenate\",\"MapValueToKey\",\"NormalizeMinMax\",\"LbfgsMaximumEntropyMulti\",\"MapKeyToValue\"]}",
+    "MetricName": "MicroAccuracy"
+  },
+  "Type": "TrainingConfig",
+  "Version": 1
+}
